@@ -255,6 +255,16 @@ private struct DashboardView: View {
                 Text(language.text(appState.isSupported ? "settings.supported" : "settings.unsupported"))
                 .foregroundStyle(appState.isSupported ? Color.green : Color.red)
             }
+            HStack {
+                Image(systemName: "arrow.clockwise.circle.fill")
+                    .foregroundStyle(.orange)
+                Text("Latest Update")
+                    .foregroundStyle(.secondary)
+                Spacer()
+                Text(LicenseService.latestUpdate)
+                    .font(.subheadline.monospacedDigit())
+                    .foregroundStyle(.primary)
+            }
 
             if appState.kernelExploitApplicable && AppInfo.versionTuple.major < 26 {
                 HStack {
